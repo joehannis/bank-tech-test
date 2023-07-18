@@ -8,7 +8,7 @@ class App {
 
   printStatement() {
     const transactionHistory = this.transactions.getTransactionHistory();
-    printStatement(transactionHistory);
+    return printStatement(transactionHistory);
   }
 }
 

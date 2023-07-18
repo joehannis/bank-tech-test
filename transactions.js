@@ -11,40 +11,47 @@ class Transactions {
   };
 
   newTransaction = (dateInput, amount) => {
-    if (typeof dateInput !== "string") {
-      throw "Please enter the date as a string, in format dd/mm/yy";
-    } else if (isNaN(amount)) {
-      throw "Please enter the amount as a number";
-    } else {
-      const split = dateInput.split("/"); //split dateInput at slash
-      const day = split[0]; //extract each element of the date from new array created by split, assign a variable
-      const month = split[1];
-      const year = split[2];
-      let date = new Date(year, month - 1, day); //create a date entry
-      date = date.toLocaleDateString("en-GB"); //set format to British time
-      let balance = this.calculateBalance(); // Calculate the current balance
+    this.errorHandling(dateInput, amount);
 
-      if (amount > 0) {
-        balance += amount; // Add the credit amount to the balance
-      } else if (amount < 0) {
-        balance -= Math.abs(amount); // Subtract the debit amount from the balance
-      }
+    const date = this.splitDate(dateInput);
+    let balance = this.calculateBalance(); // Calculate the current balance
 
-      const transaction = {
-        //create a transaction object
-        date,
-        credit: amount > 0 ? amount : null, //if amount has a value, set it to the credit key, otherwise set to null.
-        debit: amount < 0 ? amount : null,
-        balance,
-      };
+    balance += amount > 0 ? amount : -Math.abs(amount); // if amount is greater than 0, add to balance, if less than 0, subtract from balance
 
-      this.transactionHistory.push(transaction); //push new transaction to the transactionHistory array
-      return this.transactionHistory;
-    }
+    return this.createTransactionObject(date, amount, balance); // Call the method to create the transaction object
   };
 
   getTransactionHistory = () => {
     return this.transactionHistory; //return all transactions
+  };
+
+  splitDate = (dateInput) => {
+    const [day, month, year] = dateInput.split("/"); // Destructure the split array
+    let date = new Date(year, month - 1, day);
+    date = date.toLocaleDateString("en-GB"); //sets date object to use UK format
+    return date;
+  };
+
+  createTransactionObject = (date, amount, balance) => {
+    const transaction = {
+      date,
+      credit: amount > 0 ? amount : null, //if amount has a value, set it to the credit key, otherwise set to null.
+      debit: amount < 0 ? amount : null,
+      balance,
+    };
+
+    this.transactionHistory.push(transaction); //push to transactionHistory array
+    return this.getTransactionHistory();
+  };
+
+  errorHandling = (dateInput, amount) => {
+    if (typeof dateInput !== "string") {
+      // If dateInput is not a string, throw error
+      throw "Please enter the date as a string, in format dd/mm/yy";
+    } else if (isNaN(amount)) {
+      // If amount is not a number, throw error
+      throw "Please enter the amount as a number";
+    }
   };
 }
 
