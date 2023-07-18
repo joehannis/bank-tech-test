@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1689694718719" clover="3.2.0">
-  <project timestamp="1689694718719" name="All files">
-    <metrics statements="45" coveredstatements="45" conditionals="15" coveredconditionals="15" methods="13" coveredmethods="13" elements="73" coveredelements="73" complexity="0" loc="45" ncloc="45" packages="1" files="3" classes="3"/>
+<coverage generated="1689695576520" clover="3.2.0">
+  <project timestamp="1689695576520" name="All files">
+    <metrics statements="49" coveredstatements="49" conditionals="15" coveredconditionals="15" methods="15" coveredmethods="15" elements="79" coveredelements="79" complexity="0" loc="49" ncloc="49" packages="1" files="3" classes="3"/>
     <file name="app.js" path="/Users/makers/bank-tech-test/app.js">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <line num="1" count="1" type="stmt"/>
@@ -12,17 +12,21 @@
       <line num="15" count="1" type="stmt"/>
     </file>
     <file name="printStatement.js" path="/Users/makers/bank-tech-test/printStatement.js">
-      <metrics statements="10" coveredstatements="10" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+      <metrics statements="14" coveredstatements="14" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
       <line num="1" count="2" type="stmt"/>
       <line num="2" count="2" type="stmt"/>
       <line num="3" count="2" type="stmt"/>
-      <line num="6" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="4" count="2" type="stmt"/>
+      <line num="5" count="2" type="stmt"/>
+      <line num="6" count="2" type="stmt"/>
+      <line num="7" count="2" type="stmt"/>
+      <line num="10" count="2" type="stmt"/>
       <line num="11" count="2" type="stmt"/>
-      <line num="12" count="2" type="stmt"/>
-      <line num="13" count="2" type="stmt"/>
-      <line num="14" count="2" type="stmt"/>
-      <line num="16" count="2" type="stmt"/>
-      <line num="19" count="2" type="stmt"/>
+      <line num="14" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="21" count="2" type="stmt"/>
+      <line num="22" count="2" type="stmt"/>
+      <line num="24" count="2" type="stmt"/>
+      <line num="27" count="2" type="stmt"/>
     </file>
     <file name="transactions.js" path="/Users/makers/bank-tech-test/transactions.js">
       <metrics statements="29" coveredstatements="29" conditionals="11" coveredconditionals="11" methods="9" coveredmethods="9"/>
