@@ -16,10 +16,10 @@ app.printStatement();`
 For credit, enter the amount as a positive integer, for debit, enter a negative integer.
 
 here is an example of the output
-`date       || credit || debit || balance
-12/08/2019 ||         || -1500 || 1000
-28/05/2017 ||  1500 ||        || 2500
-14/01/2012 ||  1000 ||        || 1000
-Balance: 1000`
+`date       || credit || debit || balance`
+`12/08/2019 ||         || -1500 || 1000`
+`28/05/2017 ||  1500 ||        || 2500`
+`14/01/2012 ||  1000 ||        || 1000`
+`Balance: 1000`
 
 Test coverage is 100% and can be found by running 'jest --coverage'
