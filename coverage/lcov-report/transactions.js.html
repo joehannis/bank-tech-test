@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>24/24</span>
+                <span class='fraction'>28/28</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">88.88% </span>
+                <span class="strong">92.3% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>8/9</span>
+                <span class='fraction'>12/13</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>24/24</span>
+                <span class='fraction'>28/28</span>
             </div>
         
             
@@ -108,19 +108,30 @@
 <a name='L43'></a><a href='#L43'>43</a>
 <a name='L44'></a><a href='#L44'>44</a>
 <a name='L45'></a><a href='#L45'>45</a>
-<a name='L46'></a><a href='#L46'>46</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
@@ -147,7 +158,8 @@
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -166,30 +178,36 @@
   };
 &nbsp;
   newTransaction = (dateInput, amount) =&gt; {
-    const split = dateInput.split("/"); //split dateInput at slash
-    const day = split[0]; //extract each element of the date from new array created by split, assign a variable
-    const month = split[1];
-    const year = split[2];
-    let date = new Date(year, month - 1, day); //create a date entry
-    date = date.toLocaleDateString("en-GB"); //set format to British time
-    let balance = this.calculateBalance(); // Calculate the current balance
+    if (typeof dateInput !== "string") {
+      throw "Please enter the date as a string, in format dd/mm/yy";
+    } else if (isNaN(amount)) {
+      throw "Please enter the amount as a number";
+    } else {
+      const split = dateInput.split("/"); //split dateInput at slash
+      const day = split[0]; //extract each element of the date from new array created by split, assign a variable
+      const month = split[1];
+      const year = split[2];
+      let date = new Date(year, month - 1, day); //create a date entry
+      date = date.toLocaleDateString("en-GB"); //set format to British time
+      let balance = this.calculateBalance(); // Calculate the current balance
 &nbsp;
-    if (amount &gt; 0) {
-      balance += amount; // Add the credit amount to the balance
-    } else <span class="missing-if-branch" title="else path not taken" >E</span>if (amount &lt; 0) {
-      balance -= Math.abs(amount); // Subtract the debit amount from the balance
+      if (amount &gt; 0) {
+        balance += amount; // Add the credit amount to the balance
+      } else <span class="missing-if-branch" title="else path not taken" >E</span>if (amount &lt; 0) {
+        balance -= Math.abs(amount); // Subtract the debit amount from the balance
+      }
+&nbsp;
+      const transaction = {
+        //create a transaction object
+        date,
+        credit: amount &gt; 0 ? amount : null, //if amount has a value, set it to the credit key, otherwise set to null.
+        debit: amount &lt; 0 ? amount : null,
+        balance,
+      };
+&nbsp;
+      this.transactionHistory.push(transaction); //push new transaction to the transactionHistory array
+      return this.transactionHistory;
     }
-&nbsp;
-    const transaction = {
-      //create a transaction object
-      date,
-      credit: amount &gt; 0 ? amount : null, //if amount has a value, set it to the credit key, otherwise set to null.
-      debit: amount &lt; 0 ? amount : null,
-      balance,
-    };
-&nbsp;
-    this.transactionHistory.push(transaction); //push new transaction to the transactionHistory array
-    return this.transactionHistory;
   };
 &nbsp;
   getTransactionHistory = () =&gt; {
@@ -205,7 +223,7 @@ module.exports = Transactions;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-07-18T09:07:04.879Z
+                at 2023-07-18T09:44:16.274Z
             </div>
         <script src="prettify.js"></script>
         <script>

@@ -1,6 +1,18 @@
 const Transactions = require("./transactions");
 
 describe("Transactions", () => {
+  it("should throw an error as date is not a string", () => {
+    const transactions = new Transactions();
+    expect(() => transactions.newTransaction(14 / 1 / 2012, 1000)).toThrowError(
+      "Please enter the date as a string, in format dd/mm/yy"
+    );
+  });
+  it("should throw an error as amount is not a number", () => {
+    const transactions = new Transactions();
+    expect(() =>
+      transactions.newTransaction("14/01/2012", "one thousand")
+    ).toThrowError("Please enter the amount as a number");
+  });
   it("should be able to create a new transaction", () => {
     const transactions = new Transactions();
     expect(transactions.newTransaction("14/01/2012", 1000)).toEqual([

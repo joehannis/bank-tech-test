@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1689671224885" clover="3.2.0">
-  <project timestamp="1689671224885" name="All files">
-    <metrics statements="34" coveredstatements="34" conditionals="13" coveredconditionals="12" methods="8" coveredmethods="8" elements="55" coveredelements="54" complexity="0" loc="34" ncloc="34" packages="1" files="2" classes="2"/>
+<coverage generated="1689673456282" clover="3.2.0">
+  <project timestamp="1689673456282" name="All files">
+    <metrics statements="38" coveredstatements="38" conditionals="17" coveredconditionals="16" methods="8" coveredmethods="8" elements="63" coveredelements="62" complexity="0" loc="38" ncloc="38" packages="1" files="2" classes="2"/>
     <file name="printStatement.js" path="/Users/makers/bank-tech-test/printStatement.js">
       <metrics statements="10" coveredstatements="10" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
       <line num="1" count="1" type="stmt"/>
@@ -16,31 +16,35 @@
       <line num="19" count="1" type="stmt"/>
     </file>
     <file name="transactions.js" path="/Users/makers/bank-tech-test/transactions.js">
-      <metrics statements="24" coveredstatements="24" conditionals="9" coveredconditionals="8" methods="6" coveredmethods="6"/>
-      <line num="3" count="5" type="stmt"/>
-      <line num="6" count="5" type="cond" truecount="1" falsecount="0"/>
+      <metrics statements="28" coveredstatements="28" conditionals="13" coveredconditionals="12" methods="6" coveredmethods="6"/>
+      <line num="3" count="7" type="stmt"/>
+      <line num="6" count="7" type="cond" truecount="1" falsecount="0"/>
       <line num="7" count="8" type="stmt"/>
       <line num="8" count="5" type="stmt"/>
       <line num="9" count="5" type="stmt"/>
       <line num="10" count="8" type="stmt"/>
-      <line num="13" count="5" type="stmt"/>
-      <line num="14" count="7" type="stmt"/>
-      <line num="15" count="7" type="stmt"/>
-      <line num="16" count="7" type="stmt"/>
-      <line num="17" count="7" type="stmt"/>
-      <line num="18" count="7" type="stmt"/>
+      <line num="13" count="7" type="stmt"/>
+      <line num="14" count="9" type="cond" truecount="2" falsecount="0"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="16" count="8" type="cond" truecount="2" falsecount="0"/>
+      <line num="17" count="1" type="stmt"/>
       <line num="19" count="7" type="stmt"/>
       <line num="20" count="7" type="stmt"/>
-      <line num="22" count="7" type="cond" truecount="2" falsecount="0"/>
-      <line num="23" count="6" type="stmt"/>
-      <line num="24" count="1" type="cond" truecount="1" falsecount="1"/>
-      <line num="25" count="1" type="stmt"/>
-      <line num="28" count="7" type="stmt"/>
-      <line num="36" count="7" type="stmt"/>
-      <line num="37" count="7" type="stmt"/>
-      <line num="40" count="5" type="stmt"/>
-      <line num="41" count="1" type="stmt"/>
-      <line num="45" count="1" type="stmt"/>
+      <line num="21" count="7" type="stmt"/>
+      <line num="22" count="7" type="stmt"/>
+      <line num="23" count="7" type="stmt"/>
+      <line num="24" count="7" type="stmt"/>
+      <line num="25" count="7" type="stmt"/>
+      <line num="27" count="7" type="cond" truecount="2" falsecount="0"/>
+      <line num="28" count="6" type="stmt"/>
+      <line num="29" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="30" count="1" type="stmt"/>
+      <line num="33" count="7" type="stmt"/>
+      <line num="41" count="7" type="stmt"/>
+      <line num="42" count="7" type="stmt"/>
+      <line num="46" count="7" type="stmt"/>
+      <line num="47" count="1" type="stmt"/>
+      <line num="51" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>
