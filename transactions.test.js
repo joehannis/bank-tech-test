@@ -4,7 +4,7 @@ describe("Transactions", () => {
   it("should throw an error as date is not a string", () => {
     const transactions = new Transactions();
     expect(() => transactions.newTransaction(14 / 1 / 2012, 1000)).toThrowError(
-      "Please enter the date as a string, in format dd/mm/yy"
+      "Please enter the date as a string, in format dd/mm/yyyy"
     );
   });
   it("should throw an error as amount is not a number", () => {

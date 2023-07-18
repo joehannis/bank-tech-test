@@ -47,7 +47,7 @@ class Transactions {
   errorHandling = (dateInput, amount) => {
     if (typeof dateInput !== "string") {
       // If dateInput is not a string, throw error
-      throw "Please enter the date as a string, in format dd/mm/yy";
+      throw "Please enter the date as a string, in format dd/mm/yyyy";
     } else if (isNaN(amount)) {
       // If amount is not a number, throw error
       throw "Please enter the amount as a number";
